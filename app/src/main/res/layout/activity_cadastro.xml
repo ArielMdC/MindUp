@@ -118,7 +118,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Don't have an account?\nSign in"
+                android:text="Don&apos;t have an account? Sign in"
                 android:textColor="#D3D3D3"
                 android:textSize="12dp" />
         </LinearLayout>
