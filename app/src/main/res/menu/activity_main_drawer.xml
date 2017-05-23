@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_ajudar"
+            android:icon="@drawable/coracao"
+            android:title="Quero Ajudar" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_ajudado"
+            android:icon="@drawable/coracaoselected"
+            android:title="Preciso de Ajuda" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_favoritos"
+            android:icon="@drawable/ic_menu_favoritos"
+            android:title="Contatos Favoritos" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Suporte">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_email"
+                android:icon="@drawable/ic_menu_email"
+                android:title="meajuda@mindup.com.br" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_duvidas"
+                android:icon="@drawable/ic_menu_duvidas"
+                android:title="Dúvidas Frequentes" />
+        </menu>
+    </item>
+
+    <item android:title="Conta">
+        <menu>
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/ic_menu_perfil"
+                android:title="Perfil" />
+            <item
+                android:id="@+id/nav_sair"
+                android:icon="@drawable/ic_menu_sair"
+                android:title="Sair" />
         </menu>
     </item>
 
