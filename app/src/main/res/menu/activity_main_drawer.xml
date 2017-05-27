@@ -4,19 +4,17 @@
     <item android:title="Main Menu">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_home"
             android:title="Home" />
         <item
             android:id="@+id/nav_quero_ajudar"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="Quero ajudar" />
         <item
             android:id="@+id/nav_preciso_de_ajuda"
-            android:icon="@drawable/ic_menu_slideshow"
             android:title="Preciso de ajuda" />
         <item
             android:id="@+id/nav_contatos_favoritos"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_favoritos"
             android:title="Contatos Favoritos" />
     </item>
 
@@ -24,11 +22,11 @@
         <menu>
             <item
                 android:id="@+id/nav_email"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_email"
                 android:title="meajuda@mindup.com.br" />
             <item
                 android:id="@+id/nav_duvidas_frequentes"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_menu_duvidas"
                 android:title="Duvidas Frequentes" />
         </menu>
     </item>
@@ -37,11 +35,11 @@
         <menu>
             <item
                 android:id="@+id/nav_perfil"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_perfil"
                 android:title="Perfil" />
             <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_menu_sair"
                 android:title="Logout" />
         </menu>
     </item>

@@ -1,11 +1,12 @@
 package com.example.mindup;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,12 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.mindup.fragment.PerfilFragment;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,27 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.nav_home) {
-
-        } else if (item.getItemId() == R.id.nav_quero_ajudar) {
-
-        } else if (item.getItemId() == R.id.nav_preciso_de_ajuda) {
-
-        } else if (item.getItemId() == R.id.nav_contatos_favoritos) {
-
-        } else if (item.getItemId() == R.id.nav_email) {
-
-        } else if (item.getItemId() == R.id.nav_duvidas_frequentes) {
-
-        } else if (item.getItemId() == R.id.nav_perfil) {
-            startActivity(new Intent(this, PerfilActivity.class));
-        } else if (item.getItemId() == R.id.nav_logout) {
-
-        }
-
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.closeDrawer(GravityCompat.START);
+        displayView(item.getItemId());
 
         return true;
     }
@@ -100,6 +84,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void displayView(int viewId) {
+
+        Fragment fragment = null;
+        String title = getString(R.string.app_name);
+
+        switch (viewId) {
+            case R.id.nav_perfil:
+                fragment = new PerfilFragment();
+                title = "Perfil";
+
+                break;
+
+            case R.id.nav_duvidas_frequentes:
+                //fragment = new DuvidasFrequentesFragment();
+                title = "Duvidas Frequentes";
+
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+            fragmentTransaction.commit();
+        }
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
 }
