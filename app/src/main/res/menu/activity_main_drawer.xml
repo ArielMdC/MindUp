@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+
+    <item android:title="Main Menu">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_home"
+            android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
         <item
-            android:id="@+id/nav_ajudar"
-            android:icon="@drawable/coracao"
-            android:title="Quero Ajudar" />
+            android:id="@+id/nav_quero_ajudar"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Quero ajudar" />
         <item
-            android:id="@+id/nav_ajudado"
-            android:icon="@drawable/coracaoselected"
-            android:title="Preciso de Ajuda" />
+            android:id="@+id/nav_preciso_de_ajuda"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Preciso de ajuda" />
         <item
-            android:id="@+id/nav_favoritos"
-            android:icon="@drawable/ic_menu_favoritos"
+            android:id="@+id/nav_contatos_favoritos"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Contatos Favoritos" />
-    </group>
+    </item>
 
-    <item android:title="Suporte">
+    <item android:title="Support">
         <menu>
             <item
                 android:id="@+id/nav_email"
-                android:icon="@drawable/ic_menu_email"
+                android:icon="@drawable/ic_menu_share"
                 android:title="meajuda@mindup.com.br" />
             <item
-                android:id="@+id/nav_duvidas"
-                android:icon="@drawable/ic_menu_duvidas"
-                android:title="Dúvidas Frequentes" />
+                android:id="@+id/nav_duvidas_frequentes"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Duvidas Frequentes" />
         </menu>
     </item>
 
-    <item android:title="Conta">
+    <item android:title="Account">
         <menu>
             <item
                 android:id="@+id/nav_perfil"
-                android:icon="@drawable/ic_menu_perfil"
+                android:icon="@drawable/ic_menu_share"
                 android:title="Perfil" />
             <item
-                android:id="@+id/nav_sair"
-                android:icon="@drawable/ic_menu_sair"
-                android:title="Sair" />
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Logout" />
         </menu>
     </item>
 

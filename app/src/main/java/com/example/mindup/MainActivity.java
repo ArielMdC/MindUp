@@ -1,6 +1,8 @@
 package com.example.mindup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -42,6 +44,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.nav_home) {
+
+        } else if (item.getItemId() == R.id.nav_quero_ajudar) {
+
+        } else if (item.getItemId() == R.id.nav_preciso_de_ajuda) {
+
+        } else if (item.getItemId() == R.id.nav_contatos_favoritos) {
+
+        } else if (item.getItemId() == R.id.nav_email) {
+
+        } else if (item.getItemId() == R.id.nav_duvidas_frequentes) {
+
+        } else if (item.getItemId() == R.id.nav_perfil) {
+            startActivity(new Intent(this, PerfilActivity.class));
+        } else if (item.getItemId() == R.id.nav_logout) {
+
+        }
+
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -73,32 +102,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_ajudar) {
-
-        } else if (id == R.id.nav_ajudado) {
-
-        } else if (id == R.id.nav_favoritos) {
-
-        } else if (id == R.id.nav_email) {
-
-        } else if (id == R.id.nav_duvidas) {
-
-        } else if (id == R.id.nav_perfil) {
-
-        } else if (id == R.id.nav_sair) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }
