@@ -1,26 +1,35 @@
 package com.example.mindup.fragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mindup.R;
 
+
 public class PerfilFragment extends Fragment implements View.OnClickListener {
 
     ImageButton imageButtonFoto;
+    ImageView imageViewFoto;
+    Integer CAMERA_PIC_REQUEST = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_perfil, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         imageButtonFoto = (ImageButton) view.findViewById(R.id.imageButtonFoto);
+        imageViewFoto = (ImageView) view.findViewById(R.id.imageViewFoto);
 
         imageButtonFoto.setOnClickListener(this);
 
@@ -40,7 +49,8 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(getContext(), "Tirar Nova Foto", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, CAMERA_PIC_REQUEST);
                 }
 
             });
@@ -57,6 +67,18 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
             alertDialog.show();
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 0:
+                if (resultCode == Activity.RESULT_OK) {
+                    Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                    imageViewFoto.setImageBitmap(thumbnail);
+                }
+        }
     }
 
 }
