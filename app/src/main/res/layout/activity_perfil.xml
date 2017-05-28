@@ -25,7 +25,7 @@
                 android:background="@color/black" />
 
             <ImageButton
-                android:id="@+id/imageButtonNovaFoto"
+                android:id="@+id/imageButtonFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp"
