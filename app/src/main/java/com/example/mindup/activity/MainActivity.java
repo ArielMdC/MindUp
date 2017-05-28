@@ -1,4 +1,4 @@
-package com.example.mindup;
+package com.example.mindup.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.mindup.R;
 import com.example.mindup.fragment.PerfilFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
