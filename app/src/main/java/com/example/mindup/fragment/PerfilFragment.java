@@ -62,7 +62,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
                 public void onClick(DialogInterface dialog, int which) {
                     Toast.makeText(getContext(), "Galeria", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                    MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                     startActivityForResult(i, PICK_IMAGE);
                 }
 
