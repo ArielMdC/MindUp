@@ -38,7 +38,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             if (editTextUsername.getText().toString().equals(USERNAME)) {
 
                 if (editTextPassword.getText().toString().equals(PASSWORD)) {
-                    startActivity(new Intent(this, MainActivity.class));
+                    startActivity(new Intent(this, HelpActivity.class));
                 } else {
                     Toast.makeText(this, "PASSWORD ERRADO", Toast.LENGTH_SHORT).show();
                 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
@@ -10,29 +11,32 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal">
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false">
 
             <ImageView
                 android:id="@+id/imageViewFoto"
                 android:layout_width="160dp"
                 android:layout_height="200dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="32dp"
-                android:layout_marginLeft="32dp"
                 android:layout_marginTop="32dp" />
 
-            <ImageButton
+            <android.support.design.widget.FloatingActionButton
                 android:id="@+id/imageButtonFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:src="@drawable/glyphicons_picture" />
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:src="@drawable/glyphicons_picture"
+                app:backgroundTint="#FF0000"
+                app:layout_anchor="@id/imageViewFoto"
+                app:layout_anchorGravity="bottom|right|end"
+                app:rippleColor="#FFF" />
 
-        </LinearLayout>
-
+        </android.support.design.widget.CoordinatorLayout>
 
         <TextView
             android:layout_width="wrap_content"
