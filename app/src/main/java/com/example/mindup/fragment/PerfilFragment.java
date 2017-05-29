@@ -25,6 +25,16 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     ImageView imageViewFoto;
     Integer CAMERA_PIC_REQUEST = 0;
     Integer PICK_IMAGE = 1;
+    static final int REQUEST_IMAGE_OPEN = 1;
+//teste
+    public void selectImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("image/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        // Only the system receives the ACTION_OPEN_DOCUMENT, so no need to test.
+        startActivityForResult(intent, REQUEST_IMAGE_OPEN);
+    }
+//teste
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,9 +71,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Toast.makeText(getContext(), "Galeria", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                    startActivityForResult(i, PICK_IMAGE);
+                    selectImage();
                 }
 
             });
@@ -84,9 +92,10 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
                     imageViewFoto.setImageBitmap(thumbnail);
                 }
             case 1:
-                if (requestCode == Activity.RESULT_OK){
-                   Uri imagemSelecionada = (Uri) data.getExtras().get("data");
-                    imageViewFoto.setImageURI(imagemSelecionada);
+                if (requestCode == REQUEST_IMAGE_OPEN && resultCode == Activity.RESULT_OK) {
+                    Uri fullPhotoUri = data.getData();
+                    imageViewFoto.setImageURI(fullPhotoUri);
+                    // Do work with full size photo saved at fullPhotoUr
                 }
         }
     }
