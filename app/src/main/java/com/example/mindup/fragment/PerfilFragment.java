@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -23,6 +25,11 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     ImageButton imageButtonFoto;
     ImageView imageViewFoto;
     Integer CAMERA_PIC_REQUEST = 0;
+
+    Integer PICK_IMAGE = 1;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,6 +66,10 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Toast.makeText(getContext(), "Galeria", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                    startActivityForResult(i, PICK_IMAGE);
+
                 }
 
             });
@@ -69,6 +80,7 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
 
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -76,9 +88,21 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
             case 0:
                 if (resultCode == Activity.RESULT_OK) {
                     Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                    imageViewFoto.setImageBitmap(thumbnail);
+
                 }
+            case 1:
+                if(resultCode == Activity.RESULT_OK){
+                    Uri imagemSelecionada = (Uri) data.getExtras().get("data");
+                    imageViewFoto.setImageURI(imagemSelecionada);
+
+                }
+
         }
+
+
+
     }
+
+
 
 }
