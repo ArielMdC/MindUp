@@ -70,13 +70,15 @@ public class PerfilFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
         switch (requestCode) {
             case 0:
                 if (resultCode == Activity.RESULT_OK) {
-                    Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                    imageViewFoto.setImageBitmap(thumbnail);
+                    Bitmap bitmap = (Bitmap) intent.getExtras().get("data");
+
+                    imageViewFoto.setImageBitmap(bitmap);
                 }
         }
     }

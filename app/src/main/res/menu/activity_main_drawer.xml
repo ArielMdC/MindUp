@@ -12,10 +12,6 @@
         <item
             android:id="@+id/nav_preciso_de_ajuda"
             android:title="Preciso de ajuda" />
-        <item
-            android:id="@+id/nav_contatos_favoritos"
-            android:icon="@drawable/ic_menu_favoritos"
-            android:title="Contatos Favoritos" />
     </item>
 
     <item android:title="Support">
